@@ -1,0 +1,132 @@
+// CSC 365. Winter 2018
+// Lab 1-1 test suite
+
+// TC-1
+// Test Requirements R3, R4
+// short form command name, existing student
+// expected output: HAVIR,BOBBIE,2,108,2.88,HAMER,GAVIN
+
+S: HAVIR
+
+// TC-2
+// Tests Requirements R3, R4
+// short form command name, non-existing student
+// expected output: <empty line>
+
+S: NEMO
+
+// TC-3
+// Test Requirements R3, R4
+// full command name, existing student
+// expected output: HAVIR,BOBBIE,2,108,2.88,HAMER,GAVIN
+
+S: HAVIR
+
+// TC-4
+// Test Requirements R3, R5
+// short form command line, existing student
+// expected output: HAVIR,BOBBIE,0
+
+S: HAVIR B
+
+
+// TC-5
+// Test Requirements R3, R5
+// full command line, existing student
+// expected output: HAVIR,BOBBIE,0
+
+Student: HAVIR Bus
+
+
+// TC-6
+// Tests Requirements R3, R5
+// short form command name, non-existing student
+// expected output: <empty line>
+
+S: NEMO B
+
+// TC-7
+// Tests Requirements R3, R6
+// short form command name, existing teacher
+// expected output: LIBRANDI,TODD
+                    HAVIR,BOBBIE
+                    SARAO,DIEDRA
+                    VANCOTT,MIKE
+                    WICINSKY,TERESE
+                    KOZOLA,BUSTER
+                    MULLINGS,LEIGHANN
+                    BUSSMANN,BILLY
+                    BERBES,DICK
+                    MULGREW,RANDELL
+                    TOWLEY,LANE
+
+T: HAMER
+
+// TC-8
+// Tests Requirements R3, R6
+// full command name, existing teacher
+// expected output: LIBRANDI,TODD
+                    HAVIR,BOBBIE
+                    SARAO,DIEDRA
+                    VANCOTT,MIKE
+                    WICINSKY,TERESE
+                    KOZOLA,BUSTER
+                    MULLINGS,LEIGHANN
+                    BUSSMANN,BILLY
+                    BERBES,DICK
+                    MULGREW,RANDELL
+                    TOWLEY,LANE
+
+Teacher: HAMER
+
+// TC-9
+// Tests Requirements R3, R6
+// short form command name, non-existing teacher
+// expected output: <empty line>
+
+T: ??????
+
+// TC-10
+// Tests Requirements R3, R7
+// short form command name, existing grade
+// expected output: SAELEE,DANILO
+                    GARTH,JOHN
+
+G: 1
+
+// TC-10
+// Tests Requirements R3, R7
+// full command name, existing grade
+// expected output: SAELEE,DANILO
+                    GARTH,JOHN
+
+Grade: 1
+
+// TC-12
+// Tests Requirements R3, R7
+// short form command name, non-existing grade
+// expected output: <empty line>
+
+G: 99999
+
+// TC-13
+// Tests Requirements R3, R8
+// short form command name, existing bus
+// expected output: SAELEE,DANILO
+                    GARTH,JOHN
+
+G: 1
+
+
+
+
+
+
+
+
+// TC-
+// Tests Requirments R3, R13
+// short form quit command
+// expected output: program terminates
+
+Q
