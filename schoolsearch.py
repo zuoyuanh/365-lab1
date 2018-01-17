@@ -1,5 +1,6 @@
 import sys
 
+
 class Student:
    def __init__(self, data):
       self.stLastName = data[0]
@@ -12,27 +13,20 @@ class Student:
       self.tFirstName = data[7]
 
    def matchedByStLastName(self, lastname):
-      if self.stLastName == lastname:
-         return True
-      return False
+      return self.stLastName == lastname
 
    def matchedBytLastName(self, lastname):
-      if self.tLastName == lastname:
-         return True
-      return False
+      return self.tLastName == lastname
 
    def matchedByBus(self, bus):
-      if self.bus == bus:
-         return True
-      return False
+      return self.bus == bus
 
    def matchedByGrade(self, grade):
-      if self.grade == grade:
-         return True
-      return False
+      return self.grade == grade
 
    def __str__(self):
       return self.stLastName + "," + self.stFirstName + "," + self.grade + "," + self.classroom + "," + self.bus + "," + self.gpa + "," + self.tLastName + "," + self.tFirstName
+
 
 def print_info(students):
    info = dict()
@@ -46,12 +40,14 @@ def print_info(students):
    for i in keys:
       print("{0}: {1}".format(i, info[i]))
 
+
 def student_list_of_grade(grade, students):
    results = []
    for student in students:
       if student.matchedByGrade(grade):
          results.append(student)
    return results
+
 
 def main():
    students = []
@@ -70,6 +66,8 @@ def main():
          print_info(students)
       else:
          inputs = line.split(":")
+         if(len(inputs) == 0):
+            break
          if inputs[0] == "S" or inputs[0] == "Student":
             tmp = inputs[1].strip()
             params = tmp.split(" ")
@@ -108,7 +106,7 @@ def main():
             grade = params[0].strip()
             results = student_list_of_grade(grade, students)
             if len(params) > 1 and len(results) > 0:
-               f = lambda s: float(s.gpa)
+               def f(s): return float(s.gpa)
                student = None
                if params[1].strip() == "H" or params[1].strip() == "High":
                   student = max(results, key=f)
@@ -127,7 +125,8 @@ def main():
             total = 0
             for student in results:
                total += float(student.gpa)
-            print("{0},{1:.2f}".format(grade, (total/len(results))))
+            print("{0},{1:.2f}".format(grade, (total / len(results))))
+
 
 if __name__ == "__main__":
    main()

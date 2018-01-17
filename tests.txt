@@ -111,22 +111,135 @@ G: 99999
 
 // TC-13
 // Tests Requirements R3, R8
+// full command name, existing bus
+// expected output: NOLAN,WOOLERY,2,104
+                    PETER,STERBACK,6,111
+                    TODD,LIBRANDI,2,108
+                    ALONZO,RAPOSE,4,105
+                    TOMAS,COVINGTON,3,107
+                    LEIGHANN,MULLINGS,2,108
+                    CARLEE,DURAND,4,101
+                    REED,FRIEDSTROM,6,106
+Bus: 51
+
+// TC-14
+// Tests Requirements R3, R8
 // short form command name, existing bus
+// expected output: NOLAN,WOOLERY,2,104
+                    PETER,STERBACK,6,111
+                    TODD,LIBRANDI,2,108
+                    ALONZO,RAPOSE,4,105
+                    TOMAS,COVINGTON,3,107
+                    LEIGHANN,MULLINGS,2,108
+                    CARLEE,DURAND,4,101
+                    REED,FRIEDSTROM,6,106
+
+B: 51
+
+// TC-15
+// Tests Requirements R3, R8
+// short form command name, non-existing bus
+// expected output: <empty line>
+
+B: 99999
+
+// TC-16
+// Tests Requirements R3, R9
+// full command name, existing grade
+// expected output: SAELEE,DANILO
+                    GARTH,JOHN
+
+Grade: 1
+
+// TC-17
+// Tests Requirements R3, R9
+// short command name, existing grade
 // expected output: SAELEE,DANILO
                     GARTH,JOHN
 
 G: 1
 
+// TC-18
+// Tests Requirements R3, R9
+// full command name, existing grade
+// expected output: GARTH,JOHN,3.14,FALKER,ADOLPH,0
 
+Grade: 1 High
 
+// TC-19
+// Tests Requirements R3, R9
+// short form command name, existing grade
+// expected output: GARTH,JOHN,3.14,FALKER,ADOLPH,0
 
+Grade: 1 H
 
+// TC-20
+// Tests Requirements R3, R9
+// full form command name, existing grade
+// expected output: SAELEE,DANILO,2.85,FALKER,ADOLPH,54
 
+Grade: 1 Low
 
+// TC-21
+// Tests Requirements R3, R9
+// short form command name, existing grade
+// expected output: SAELEE,DANILO,2.85,FALKER,ADOLPH,54
 
-// TC-
+Grade: 1 L
+
+// TC-22
+// Tests Requirements R3, R11
+// full  command name, existing grade
+// expected output: 1,3.00
+
+Average: 1
+
+// TC-23
+// Tests Requirements R3, R11
+// short form command name, existing grade
+// expected output: 1,3.00
+
+A: 1
+
+// TC-24
+// Tests Requirements R3, R12
+// full command name
+// expected output: 1: 2
+                    2: 13
+                    3: 9
+                    4: 15
+                    6: 21
+
+Info
+
+// TC-25
+// Tests Requirements R3, R12
+// short form command name
+// expected output: 1: 2
+                    2: 13
+                    3: 9
+                    4: 15
+                    6: 21
+
+I
+
+// TC-26
 // Tests Requirments R3, R13
 // short form quit command
 // expected output: program terminates
 
 Q
+
+// TC-27
+// Tests Requirments E1
+// full form error command
+// expected output: program Error exit program
+
+Average
+
+// TC-28
+// Tests Requirments E1
+// short form error command
+// expected output: program Error exit program
+
+A
