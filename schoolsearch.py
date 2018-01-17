@@ -66,8 +66,8 @@ def main():
          print_info(students)
       else:
          inputs = line.split(":")
-         if(len(inputs) == 0):
-            break
+         if len(inputs) <= 1:
+            continue
          if inputs[0] == "S" or inputs[0] == "Student":
             tmp = inputs[1].strip()
             params = tmp.split(" ")
@@ -122,6 +122,8 @@ def main():
          elif inputs[0] == "A" or inputs[0] == "Average":
             grade = inputs[1].strip()
             results = student_list_of_grade(grade, students)
+            if len(results) == 0:
+               continue
             total = 0
             for student in results:
                total += float(student.gpa)
