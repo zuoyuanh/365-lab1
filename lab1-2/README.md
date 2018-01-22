@@ -18,7 +18,7 @@ Requirement NR3. Given a grade, find all teachers who teach it.
 
 Requirement NR4. Report the enrollments broken down by classroom (i.e., output a list of classrooms ordered by classroom number, with a total number of students in each of the classrooms).
 ---
-`Command: E[nrolllment]`
+`Command: E[nrollment]`
 `Example: E`
 
 Requirement NR5. Add to your program the commands that allow a data analyst to extract appropriate data to be able to analyze whether student GPAs are affected by the student’s grades, student’s teachers or the bus routes the students are on.
