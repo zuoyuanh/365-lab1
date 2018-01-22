@@ -52,6 +52,18 @@ def print_info(students):
    for i in keys:
       print("{0}: {1}".format(i, info[i]))
 
+def calc_total_students_by_classroom(students):
+   data = dict()
+   for student in students:
+      classroom = int(student.classroom)
+      if classroom in data:
+         data[classroom] += 1
+      else:
+         data[classroom] = 1
+   keys = sorted(data.keys())
+   for i in keys:
+      print("{0}: {1}".format(i, data[i]))
+
 
 def student_list_of_grade(grade, students):
    results = []
@@ -66,6 +78,44 @@ def find_teacher_by_classroom(teachers, classroom):
       if teacher.matchedByClassroom(classroom):
          results.append(teacher)
    return results
+
+def analyze_grade(students, teachers, grade):
+   results = []
+   for student in students:
+      if student.matchedByGrade(grade):
+         results.append(student)
+   for student in results:
+      teachers_found = find_teacher_by_classroom(teachers, student.classroom)
+      for teacher in teachers_found:
+         print(student.gpa + "," + student.bus + "," + teacher.tLastName + "," + teacher.tFirstName)
+
+def analyze_teacher(students, teachers, tLastName):
+   teachers_found = []
+   for teacher in teachers:
+      if teacher.matchedBytLastName(tLastName):
+         teachers_found.append(teacher)
+   for teacher in teachers_found:
+      for student in students:
+         if student.matchedByClassroom(teacher.classroom):
+            print(student.gpa + "," + student.bus + "," + teacher.tLastName + "," + teacher.tFirstName)
+
+def analyze_bus(students, teachers, bus):
+   for student in students:
+      if student.matchedByBus(bus):
+         teachers_found = find_teacher_by_classroom(teachers, student.classroom)
+         for teacher in teachers_found:
+            print(student.gpa + "," + student.bus + "," + teacher.tLastName + "," + teacher.tFirstName)
+
+def analyze_performance(students, teachers, inputs):
+   params = inputs.strip().split(" ")
+   params[0] = params[0].strip()
+   params[1] = params[1].strip()
+   if params[0] == 'G' or params[0] == 'Grade':
+      analyze_grade(students, teachers, params[1])
+   elif params[0] == "T" or params[0] == "Teacher":
+      analyze_teacher(students, teachers, params[1])
+   elif params[0] == "B" or params[0] == "Bus":
+      analyze_bus(students, teachers, params[1])
 
 def main():
    students = []
@@ -89,6 +139,8 @@ def main():
          break
       elif line == "I" or line == "Info":
          print_info(students)
+      elif line == "E" or line == "Enrollment":
+         calc_total_students_by_classroom(students)
       else:
          inputs = line.split(":")
          if len(inputs) <= 1:
@@ -105,9 +157,9 @@ def main():
             for student in students:
                if student.matchedByStLastName(lastname):
                   found += 1
-                  teachers = find_teacher_by_classroom(teachers, student.classroom)
+                  teachers_found = find_teacher_by_classroom(teachers, student.classroom)
                   if bus == False:
-                     for teacher in teachers:
+                     for teacher in teachers_found:
                         print(student.stLastName + "," + student.stFirstName + "," + student.grade + "," + student.classroom + "," + teacher.tLastName + "," + teacher.tFirstName)
                   else:
                      print(student.stLastName + "," + student.stFirstName + "," + student.bus)
@@ -140,13 +192,23 @@ def main():
             if len(params) > 1 and len(results) > 0:
                def f(s): return float(s.gpa)
                student = None
-               if params[1].strip() == "H" or params[1].strip() == "High":
+               if params[1].strip() == "T" or params[1].strip() == "Teacher":
+                  classrooms = set()
+                  for student in students:
+                     if student.matchedByGrade(grade):
+                        classrooms.add(student.classroom.strip())
+                  for classroom in classrooms:
+                     for teacher in teachers:
+                        if teacher.matchedByClassroom(classroom):
+                           print(teacher)
+                  continue
+               elif params[1].strip() == "H" or params[1].strip() == "High":
                   student = max(results, key=f)
                elif params[1].strip() == "L" or params[1].strip() == "Low":
                   student = min(results, key=f)
                if student:
-                  teachers = find_teacher_by_classroom(teachers, student.classroom)
-                  for teacher in teachers:
+                  teachers_found = find_teacher_by_classroom(teachers, student.classroom)
+                  for teacher in teachers_found:
                      print(student.stLastName + "," + student.stFirstName + "," + student.gpa + "," + teacher.tLastName + "," + teacher.tFirstName + "," + student.bus)
             else:
                if len(results) == 0:
@@ -175,6 +237,8 @@ def main():
                for student in students:
                   if student.matchedByClassroom(classroom):
                      print(student)
+         elif inputs[0] == "P" or inputs[0] == "Performance":
+            analyze_performance(students, teachers, inputs[1])
 
 
 if __name__ == "__main__":

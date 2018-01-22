@@ -224,22 +224,205 @@ Info
 I
 
 // TC-26
+// Tests Requirments E1
+// full form error command
+// expected output:
+
+Average
+
+// TC-27
+// Tests Requirments E1
+// short form error command
+// expected output:
+
+A
+
+// TC-28
+// Tests Requirements NR1
+// short form command
+// expected output: RACANELLO,NOEL,6,102,56,3.13
+                    CORONADO,DIMPLE,6,102,52,2.88
+                    BOYTER,WAN,6,102,55,3.1
+                    KEMERER,ROSETTA,6,102,52,2.84
+                    DEMARTINI,DEWAYNE,6,102,55,2.93
+
+C: 102
+
+// TC-29
+// Tests Requirements NR1
+// full command
+// expected output: RACANELLO,NOEL,6,102,56,3.13
+                    CORONADO,DIMPLE,6,102,52,2.88
+                    BOYTER,WAN,6,102,55,3.1
+                    KEMERER,ROSETTA,6,102,52,2.84
+                    DEMARTINI,DEWAYNE,6,102,55,2.93
+
+Classroom: 102
+
+// TC-30
+// Tests Requirements NR1
+// full command, non-existing classroom
+// expected output:
+
+Classroom: 888
+
+
+// TC-31
+// Tests Requirements NR2
+// short form command
+// expected output: KERBS,BENITO
+
+C: 102 T
+
+
+// TC-31
+// Tests Requirements NR2
+// full command
+// expected output: KERBS,BENITO
+
+Classroom: 102 Teacher
+
+// TC-32
+// Tests Requirements NR2
+// short form command, non-existing classroom
+// expected output:
+
+C: 888 T
+
+// TC-33
+// Tests Requirements NR3
+// short form command
+// expected output: KERBS,BENITO
+                    BODZIONY,LUZ
+                    NISTENDIRK,NANCY
+                    GAMBREL,JAE
+
+G: 6 T
+
+// TC-34
+// Tests Requirements NR3
+// full command
+// expected output: KERBS,BENITO
+                    BODZIONY,LUZ
+                    NISTENDIRK,NANCY
+                    GAMBREL,JAE
+
+Grade: 6 Teacher
+
+// TC-35
+// Tests Requirements NR3
+// short form command, non-existing grade
+// expected output:
+
+G: 511 Teacher
+
+// TC-36
+// Tests Requirements NR4
+// short form command
+// expected output: 101: 1
+                    102: 5
+                    103: 2
+                    104: 2
+                    105: 6
+                    106: 2
+                    107: 7
+                    108: 11
+                    109: 5
+                    110: 2
+                    111: 9
+                    112: 8
+
+E
+
+// TC-37
+// Tests Requirements NR4
+// full command
+// expected output: 101: 1
+                    102: 5
+                    103: 2
+                    104: 2
+                    105: 6
+                    106: 2
+                    107: 7
+                    108: 11
+                    109: 5
+                    110: 2
+                    111: 9
+                    112: 8
+
+Enrollment
+
+// TC-38
+// Tests Requirements NR5
+// short form command
+// expected output: 2.85,54,FALKER,ADOLPH
+                    3.14,0,FALKER,ADOLPH
+
+P: G 1
+
+// TC-39
+// Tests Requirements NR5
+// full command
+// expected output: 2.85,54,FALKER,ADOLPH
+                    3.14,0,FALKER,ADOLPH
+
+Performance: Grade 1
+
+// TC-40
+// Tests Requirements NR5
+// short form command
+// expected output: 3.13,56,KERBS,BENITO
+                    2.88,52,KERBS,BENITO
+                    3.1,55,KERBS,BENITO
+                    2.84,52,KERBS,BENITO
+                    2.93,55,KERBS,BENITO
+
+P: T KERBS
+
+// TC-41
+// Tests Requirements NR5
+// full command
+// expected output: 3.13,56,KERBS,BENITO
+                    2.88,52,KERBS,BENITO
+                    3.1,55,KERBS,BENITO
+                    2.84,52,KERBS,BENITO
+                    2.93,55,KERBS,BENITO
+
+Performance: Teacher KERBS
+
+// TC-42
+// Tests Requirements NR5
+// short form command
+// expected output: 3.07,52,FAFARD,ROCIO
+                    2.86,52,FAFARD,ROCIO
+                    2.78,52,HANTZ,JED
+                    2.95,52,NISTENDIRK,NANCY
+                    2.88,52,KERBS,BENITO
+                    2.79,52,HAMER,GAVIN
+                    2.91,52,FAFARD,ROCIO
+                    2.84,52,KERBS,BENITO
+
+P: B 52
+
+// TC-43
+// Tests Requirements NR5
+// full command
+// expected output: 3.07,52,FAFARD,ROCIO
+                    2.86,52,FAFARD,ROCIO
+                    2.78,52,HANTZ,JED
+                    2.95,52,NISTENDIRK,NANCY
+                    2.88,52,KERBS,BENITO
+                    2.79,52,HAMER,GAVIN
+                    2.91,52,FAFARD,ROCIO
+                    2.84,52,KERBS,BENITO
+
+Performance: Bus 52
+
+
+// TC-44
 // Tests Requirments R3, R13
 // short form quit command
 // expected output: program terminates
 
 Q
 
-// TC-27
-// Tests Requirments E1
-// full form error command
-// expected output: program Error exit program
-
-Average
-
-// TC-28
-// Tests Requirments E1
-// short form error command
-// expected output: program Error exit program
-
-A
